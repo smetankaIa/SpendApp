@@ -19,27 +19,8 @@
 		71BA7EBA2CDE1F780072F620 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BA7EB92CDE1F780072F620 /* HistoryView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		710FAB8E2CD50CA4004CC2F7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 710FAB752CD50CA3004CC2F7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 710FAB7C2CD50CA3004CC2F7;
-			remoteInfo = Sharp;
-		};
-		710FAB982CD50CA4004CC2F7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 710FAB752CD50CA3004CC2F7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 710FAB7C2CD50CA3004CC2F7;
-			remoteInfo = Sharp;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		710FAB7D2CD50CA3004CC2F7 /* Sharp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sharp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		710FAB8D2CD50CA4004CC2F7 /* SharpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		710FAB972CD50CA4004CC2F7 /* SharpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		710FABAA2CD50CB0004CC2F7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		710FABAC2CD50CB0004CC2F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		710FABAD2CD50CB0004CC2F7 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
@@ -52,35 +33,8 @@
 		71BA7EB92CDE1F780072F620 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		710FAB902CD50CA4004CC2F7 /* SharpTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SharpTests;
-			sourceTree = "<group>";
-		};
-		710FAB9A2CD50CA4004CC2F7 /* SharpUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SharpUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
 		710FAB7A2CD50CA3004CC2F7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		710FAB8A2CD50CA4004CC2F7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		710FAB942CD50CA4004CC2F7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -94,8 +48,6 @@
 			isa = PBXGroup;
 			children = (
 				710FABAF2CD50CB0004CC2F7 /* Sharp */,
-				710FAB902CD50CA4004CC2F7 /* SharpTests */,
-				710FAB9A2CD50CA4004CC2F7 /* SharpUITests */,
 				710FAB7E2CD50CA3004CC2F7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,8 +56,6 @@
 			isa = PBXGroup;
 			children = (
 				710FAB7D2CD50CA3004CC2F7 /* Sharp.app */,
-				710FAB8D2CD50CA4004CC2F7 /* SharpTests.xctest */,
-				710FAB972CD50CA4004CC2F7 /* SharpUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,52 +139,6 @@
 			productReference = 710FAB7D2CD50CA3004CC2F7 /* Sharp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		710FAB8C2CD50CA4004CC2F7 /* SharpTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 710FABA42CD50CA4004CC2F7 /* Build configuration list for PBXNativeTarget "SharpTests" */;
-			buildPhases = (
-				710FAB892CD50CA4004CC2F7 /* Sources */,
-				710FAB8A2CD50CA4004CC2F7 /* Frameworks */,
-				710FAB8B2CD50CA4004CC2F7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				710FAB8F2CD50CA4004CC2F7 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				710FAB902CD50CA4004CC2F7 /* SharpTests */,
-			);
-			name = SharpTests;
-			packageProductDependencies = (
-			);
-			productName = SharpTests;
-			productReference = 710FAB8D2CD50CA4004CC2F7 /* SharpTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		710FAB962CD50CA4004CC2F7 /* SharpUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 710FABA72CD50CA4004CC2F7 /* Build configuration list for PBXNativeTarget "SharpUITests" */;
-			buildPhases = (
-				710FAB932CD50CA4004CC2F7 /* Sources */,
-				710FAB942CD50CA4004CC2F7 /* Frameworks */,
-				710FAB952CD50CA4004CC2F7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				710FAB992CD50CA4004CC2F7 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				710FAB9A2CD50CA4004CC2F7 /* SharpUITests */,
-			);
-			name = SharpUITests;
-			packageProductDependencies = (
-			);
-			productName = SharpUITests;
-			productReference = 710FAB972CD50CA4004CC2F7 /* SharpUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -247,14 +151,6 @@
 				TargetAttributes = {
 					710FAB7C2CD50CA3004CC2F7 = {
 						CreatedOnToolsVersion = 16.0;
-					};
-					710FAB8C2CD50CA4004CC2F7 = {
-						CreatedOnToolsVersion = 16.0;
-						TestTargetID = 710FAB7C2CD50CA3004CC2F7;
-					};
-					710FAB962CD50CA4004CC2F7 = {
-						CreatedOnToolsVersion = 16.0;
-						TestTargetID = 710FAB7C2CD50CA3004CC2F7;
 					};
 				};
 			};
@@ -273,8 +169,6 @@
 			projectRoot = "";
 			targets = (
 				710FAB7C2CD50CA3004CC2F7 /* Sharp */,
-				710FAB8C2CD50CA4004CC2F7 /* SharpTests */,
-				710FAB962CD50CA4004CC2F7 /* SharpUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -286,20 +180,6 @@
 			files = (
 				710FABB22CD50CB0004CC2F7 /* Preview Assets.xcassets in Resources */,
 				710FABB32CD50CB0004CC2F7 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		710FAB8B2CD50CA4004CC2F7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		710FAB952CD50CA4004CC2F7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,34 +201,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		710FAB892CD50CA4004CC2F7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		710FAB932CD50CA4004CC2F7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		710FAB8F2CD50CA4004CC2F7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 710FAB7C2CD50CA3004CC2F7 /* Sharp */;
-			targetProxy = 710FAB8E2CD50CA4004CC2F7 /* PBXContainerItemProxy */;
-		};
-		710FAB992CD50CA4004CC2F7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 710FAB7C2CD50CA3004CC2F7 /* Sharp */;
-			targetProxy = 710FAB982CD50CA4004CC2F7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		710FAB9F2CD50CA4004CC2F7 /* Debug */ = {
@@ -528,78 +381,6 @@
 			};
 			name = Release;
 		};
-		710FABA52CD50CA4004CC2F7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5RFXK7CBJ3;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "YoungSkateBastard-s.SharpTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sharp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sharp";
-			};
-			name = Debug;
-		};
-		710FABA62CD50CA4004CC2F7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5RFXK7CBJ3;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "YoungSkateBastard-s.SharpTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sharp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sharp";
-			};
-			name = Release;
-		};
-		710FABA82CD50CA4004CC2F7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5RFXK7CBJ3;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "YoungSkateBastard-s.SharpUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Sharp;
-			};
-			name = Debug;
-		};
-		710FABA92CD50CA4004CC2F7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5RFXK7CBJ3;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "YoungSkateBastard-s.SharpUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Sharp;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -617,24 +398,6 @@
 			buildConfigurations = (
 				710FABA22CD50CA4004CC2F7 /* Debug */,
 				710FABA32CD50CA4004CC2F7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		710FABA42CD50CA4004CC2F7 /* Build configuration list for PBXNativeTarget "SharpTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				710FABA52CD50CA4004CC2F7 /* Debug */,
-				710FABA62CD50CA4004CC2F7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		710FABA72CD50CA4004CC2F7 /* Build configuration list for PBXNativeTarget "SharpUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				710FABA82CD50CA4004CC2F7 /* Debug */,
-				710FABA92CD50CA4004CC2F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
