@@ -9,38 +9,47 @@ import SwiftUI
 import SwiftData
 
 struct AddSpendView: View {
-    @Environment(\.modelContext) var modelContext
-    @Query var spends: [SpendModel]
+    @StateObject var viewModel = AddSpendViewModel()
+
     @State var nameSpend = ""
     @State var priceSpend = 0.0
+    @State private var selectedCategory: String = "Vegetables/Fruits"
+    @State private var selectedDate: Date = Date()
+    
     var catregory = ["Vegetables/Fruits", "Milk Products", "Drinks", "Snacks",
               "Bakery", "Alcohol", "Chemical", "Meat", "Souce/Spices", "Cereals",
               "Other", "Add Your Category"]
-    @State private var selectedCategory: String = "Vegetables/Fruits"
-    @State private var selectedDate: Date = Date()
+    
+    
     private let dateFormatter: DateFormatter = {
             let formatter = DateFormatter()
             formatter.dateStyle = .medium
             return formatter
         }()
+    
     var body: some View {
         VStack {
             HStack {
                 Text("Create Spend")
                     .font(.title)
             }
+            
             HStack {
                 Image(systemName: "basket.fill")
                     .foregroundStyle(.green)
                 TextField("Name Spend", text: $nameSpend)
-            }.padding()
+            }
+            .padding()
+            
             Divider()
+            
             HStack {
                 Image(systemName: "dollarsign.ring")
                     .foregroundStyle(.green)
                 TextField("Price Spend", value: $priceSpend, format: .number)
                     .keyboardType(.decimalPad)
-            }.padding()
+            }
+            .padding()
             Divider()
             HStack {
                 Image(systemName: "calendar")
@@ -70,31 +79,22 @@ struct AddSpendView: View {
             Spacer()
             HStack {
                 Button {
-                    addSpend()
+                    viewModel.addSpend()
                 } label: {
-                    Rectangle()
-                        .frame(maxWidth: .infinity, maxHeight: 60)
-                        .cornerRadius(15)
-                        .overlay{
-                            Text("Add Spend")
-                                .foregroundStyle(.white)
-                                .bold()
-                        }
+                    Text("Add Spend")
+                        .foregroundStyle(.white)
+                        .frame(width: 200, height: 50)
+                        .background(Color.green)
+                        .clipShape(.rect(cornerRadius: 15))
+                    
                 }
             }.padding()
             Spacer()
         }
         
     }
-    func addSpend() {
-        let rome = SpendModel(name: "Rome")
-        let florence = SpendModel(name: "Florence")
-        let naples = SpendModel(name: "Naples")
-        
-        modelContext.insert(rome)
-        modelContext.insert(florence)
-        modelContext.insert(naples)
-    }
+   
+
 }
 
 

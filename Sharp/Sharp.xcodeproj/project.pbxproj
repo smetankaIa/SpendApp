@@ -12,6 +12,8 @@
 		710FABB22CD50CB0004CC2F7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 710FABAA2CD50CB0004CC2F7 /* Preview Assets.xcassets */; };
 		710FABB32CD50CB0004CC2F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 710FABAC2CD50CB0004CC2F7 /* Assets.xcassets */; };
 		710FABBA2CD8DFE5004CC2F7 /* AddSpendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710FABB92CD8DFE5004CC2F7 /* AddSpendView.swift */; };
+		7118454B2CE7300300B27E19 /* AddSpendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7118454A2CE7300300B27E19 /* AddSpendViewModel.swift */; };
+		7126517E2CE7920D00E40AA2 /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7126517D2CE7920D00E40AA2 /* Tabs.swift */; };
 		7157A3C32CE6187500F585AA /* SpendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7157A3C22CE6187500F585AA /* SpendModel.swift */; };
 		71BA7EB42CDE1EF90072F620 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BA7EB32CDE1EF90072F620 /* MainView.swift */; };
 		71BA7EB62CDE1F060072F620 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BA7EB52CDE1F060072F620 /* ProfileView.swift */; };
@@ -26,6 +28,8 @@
 		710FABAD2CD50CB0004CC2F7 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		710FABAE2CD50CB0004CC2F7 /* SharpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharpApp.swift; sourceTree = "<group>"; };
 		710FABB92CD8DFE5004CC2F7 /* AddSpendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpendView.swift; sourceTree = "<group>"; };
+		7118454A2CE7300300B27E19 /* AddSpendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpendViewModel.swift; sourceTree = "<group>"; };
+		7126517D2CE7920D00E40AA2 /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
 		7157A3C22CE6187500F585AA /* SpendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendModel.swift; sourceTree = "<group>"; };
 		71BA7EB32CDE1EF90072F620 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		71BA7EB52CDE1F060072F620 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -44,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		710833E32CE7169A00F04857 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				710FABAE2CD50CB0004CC2F7 /* SharpApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		710FAB742CD50CA3004CC2F7 = {
 			isa = PBXGroup;
 			children = (
@@ -71,12 +83,10 @@
 		710FABAF2CD50CB0004CC2F7 /* Sharp */ = {
 			isa = PBXGroup;
 			children = (
-				710FABB62CD50CD2004CC2F7 /* Model */,
-				710FABB52CD50CC5004CC2F7 /* ViewModel */,
 				710FABB42CD50CBF004CC2F7 /* View */,
+				711845432CE717F100B27E19 /* Resource */,
+				710833E32CE7169A00F04857 /* App */,
 				710FABAB2CD50CB0004CC2F7 /* Preview Content */,
-				710FABAC2CD50CB0004CC2F7 /* Assets.xcassets */,
-				710FABAE2CD50CB0004CC2F7 /* SharpApp.swift */,
 			);
 			path = Sharp;
 			sourceTree = "<group>";
@@ -84,17 +94,15 @@
 		710FABB42CD50CBF004CC2F7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				710FABAD2CD50CB0004CC2F7 /* CustomTabView.swift */,
+				710FABB62CD50CD2004CC2F7 /* Model */,
+				711845482CE718BF00B27E19 /* ShoppingListView */,
+				711845472CE718B000B27E19 /* ProfileView */,
+				711845462CE7189B00B27E19 /* MainView */,
+				711845452CE7186B00B27E19 /* AddSpendView */,
+				711845492CE718D900B27E19 /* HistoryView */,
 				71BA7EB22CDE1EAE0072F620 /* TabView */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		710FABB52CD50CC5004CC2F7 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		710FABB62CD50CD2004CC2F7 /* Model */ = {
@@ -105,14 +113,60 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		71BA7EB22CDE1EAE0072F620 /* TabView */ = {
+		711845432CE717F100B27E19 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				710FABAC2CD50CB0004CC2F7 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		711845452CE7186B00B27E19 /* AddSpendView */ = {
 			isa = PBXGroup;
 			children = (
 				710FABB92CD8DFE5004CC2F7 /* AddSpendView.swift */,
+				7118454A2CE7300300B27E19 /* AddSpendViewModel.swift */,
+			);
+			path = AddSpendView;
+			sourceTree = "<group>";
+		};
+		711845462CE7189B00B27E19 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
 				71BA7EB32CDE1EF90072F620 /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		711845472CE718B000B27E19 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
 				71BA7EB52CDE1F060072F620 /* ProfileView.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		711845482CE718BF00B27E19 /* ShoppingListView */ = {
+			isa = PBXGroup;
+			children = (
 				71BA7EB72CDE1F540072F620 /* ShoppingListView.swift */,
+			);
+			path = ShoppingListView;
+			sourceTree = "<group>";
+		};
+		711845492CE718D900B27E19 /* HistoryView */ = {
+			isa = PBXGroup;
+			children = (
 				71BA7EB92CDE1F780072F620 /* HistoryView.swift */,
+			);
+			path = HistoryView;
+			sourceTree = "<group>";
+		};
+		71BA7EB22CDE1EAE0072F620 /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				710FABAD2CD50CB0004CC2F7 /* CustomTabView.swift */,
+				7126517D2CE7920D00E40AA2 /* Tabs.swift */,
 			);
 			path = TabView;
 			sourceTree = "<group>";
@@ -193,10 +247,12 @@
 				71BA7EB82CDE1F540072F620 /* ShoppingListView.swift in Sources */,
 				710FABB02CD50CB0004CC2F7 /* CustomTabView.swift in Sources */,
 				710FABB12CD50CB0004CC2F7 /* SharpApp.swift in Sources */,
+				7126517E2CE7920D00E40AA2 /* Tabs.swift in Sources */,
 				71BA7EB42CDE1EF90072F620 /* MainView.swift in Sources */,
 				71BA7EB62CDE1F060072F620 /* ProfileView.swift in Sources */,
 				710FABBA2CD8DFE5004CC2F7 /* AddSpendView.swift in Sources */,
 				7157A3C32CE6187500F585AA /* SpendModel.swift in Sources */,
+				7118454B2CE7300300B27E19 /* AddSpendViewModel.swift in Sources */,
 				71BA7EBA2CDE1F780072F620 /* HistoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
