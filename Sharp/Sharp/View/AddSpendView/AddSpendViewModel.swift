@@ -8,29 +8,35 @@
 import Foundation
 import SwiftData
 import SwiftUI
-import SwiftUICore
 
 
-class AddSpendViewModel: ObservableObject {
-    @Query var spends: [SpendModel]
-    @Environment(\.modelContext) var modelContext
+@Observable
+class AddSpendViewModel {
+    var modelContext: ModelContext
+    var spends = [SpendModel]()
+    
+    init(modelContext: ModelContext, spends: [SpendModel] = [SpendModel]()) {
+        self.modelContext = modelContext
+        self.spends = spends
+        fetchSpend()
+    }
+    
+    func fetchSpend() {
+        do {
+            let descriptor = FetchDescriptor<SpendModel>(sortBy: [SortDescriptor(\.title)])
+            spends = try modelContext.fetch(descriptor)
+        } catch {
+            print("fetch failed")
+        }
+    }
     
     
     func addSpend() {
-        let rome = SpendModel(name: "Rome")
-        let florence = SpendModel(name: "Florence")
-        let naples = SpendModel(name: "Naples")
-        
-        modelContext.insert(rome)
-        modelContext.insert(florence)
-        modelContext.insert(naples)
+        let spend = SpendModel(title: "LitEnergy Гранат", price: 99 , date: Date())
+        modelContext.insert(spend)
+        fetchSpend()
     }
     
-    func deleteSpend(_ indexSet: IndexSet) {
-        for index in indexSet {
-            let spend = spends[index]
-            modelContext.delete(spend)
-        }
-        
-    }
+    
 }
+

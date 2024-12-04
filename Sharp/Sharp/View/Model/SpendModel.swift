@@ -8,17 +8,14 @@
 import Foundation
 import SwiftData
 
-
-
-
 @Model
 class SpendModel {
-    var name: String
+    var title: String
     var price: Double
     var date: Date
     
-    init(name: String  = "" , price: Double = 0.0, date: Date = .now) {
-        self.name = name
+    init(title: String  = " " , price: Double = 0.0, date: Date = .now) {
+        self.title = title
         self.price = price
         self.date = date
     }

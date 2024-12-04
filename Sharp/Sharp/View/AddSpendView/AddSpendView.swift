@@ -8,11 +8,45 @@
 import SwiftUI
 import SwiftData
 
+enum Category: CaseIterable {
+    case plants, milkProducts, drinks, snacks, bakery, alcohol, chemical, meat, souceSpices, cereals, others
+    var label: String {
+        switch self {
+        case .plants:
+            return "Plants"
+        case .milkProducts:
+            return "Milk Products"
+        case .drinks:
+            return "Drinks"
+        case .snacks:
+            return "Snacks"
+        case .bakery:
+            return "Bakery"
+        case .alcohol:
+            return "Alcohol"
+        case .chemical:
+            return "Chemicalits"
+        case .meat:
+            return "Meat"
+        case .souceSpices:
+            return "Souces / Spices"
+        case .cereals:
+            return "Cereals"
+        case .others:
+            return "Orher"
+    
+        }
+    }
+}
+
+
+
 struct AddSpendView: View {
-    @StateObject var viewModel = AddSpendViewModel()
+    @State var viewModel: AddSpendViewModel
 
     @State var nameSpend = ""
     @State var priceSpend = 0.0
+    @State var category = ""
     @State private var selectedCategory: String = "Vegetables/Fruits"
     @State private var selectedDate: Date = Date()
     
@@ -20,20 +54,11 @@ struct AddSpendView: View {
               "Bakery", "Alcohol", "Chemical", "Meat", "Souce/Spices", "Cereals",
               "Other", "Add Your Category"]
     
-    
-    private let dateFormatter: DateFormatter = {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            return formatter
-        }()
-    
     var body: some View {
         VStack {
-            HStack {
-                Text("Create Spend")
-                    .font(.title)
-            }
-            
+            Text("Create Spend")
+                .font(.title)
+    
             HStack {
                 Image(systemName: "basket.fill")
                     .foregroundStyle(.green)
@@ -50,33 +75,35 @@ struct AddSpendView: View {
                     .keyboardType(.decimalPad)
             }
             .padding()
+            
             Divider()
+            
             HStack {
                 Image(systemName: "calendar")
                     .foregroundStyle(.green)
                 DatePicker("Select a Date",
                            selection: $selectedDate,
                            displayedComponents: .date)
-            }.padding()
+            }
+            .padding()
+            
             Divider()
+            
             HStack {
                 Image(systemName: "list.bullet")
                     .foregroundStyle(.green)
-                Text("Select Category")
+                Text("Add Caregory")
                 Spacer()
-                Picker("fruits", selection: $selectedCategory) {
-                    ForEach(catregory, id: \.self) { fruit in
-                        Text(fruit)
-                        
-                        
-                    }
-                }.pickerStyle(.menu)
-                    .foregroundStyle(.black)
                 
-            }.padding()
+                TextField("Category", text: $category)
+            }
+            .padding()
+            
             Divider()
+            
             Spacer()
             Spacer()
+            
             HStack {
                 Button {
                     viewModel.addSpend()
@@ -93,11 +120,29 @@ struct AddSpendView: View {
         }
         
     }
-   
+    init(modelContext: ModelContext) {
+        let viewModel = AddSpendViewModel(modelContext: modelContext)
+          _viewModel = State(initialValue: viewModel)
+      }
 
 }
-
-
 #Preview {
-    AddSpendView()
+    struct SwiftDataVie_Preview: View {
+        
+        let container: ModelContainer
+        
+        init() {
+            do {
+                container = try ModelContainer(for: SpendModel.self, configurations: .init())
+            } catch {
+                fatalError()
+            }
+        }
+        
+        var body: some View {
+            AddSpendView(modelContext: container.mainContext)
+        }
+    }
+    
+    return SwiftDataVie_Preview()
 }

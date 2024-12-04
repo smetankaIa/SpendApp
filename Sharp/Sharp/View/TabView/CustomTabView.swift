@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
-
+import SwiftData
 
 
 struct CustomTabView: View {
     @State private var selectedTab: Tabs = .mains
+    @State var  viewModel: AddSpendViewModel
     var body: some View {
         NavigationStack {
-            selectedTab.view
+            selectedTab.view(modelContext: viewModel.modelContext)
 
                 Spacer()
                     HStack(spacing: 0) {
@@ -42,7 +43,28 @@ struct CustomTabView: View {
                 .ignoresSafeArea(.all)
         }
     }
+    init(modelContext: ModelContext) {
+        let viewModel = AddSpendViewModel(modelContext: modelContext)
+          _viewModel = State(initialValue: viewModel)
+      }
 }
 #Preview {
-    CustomTabView()
+    struct SwiftDataVie_Preview: View {
+        
+        let container: ModelContainer
+        
+        init() {
+            do {
+                container = try ModelContainer(for: SpendModel.self, configurations: .init())
+            } catch {
+                fatalError()
+            }
+        }
+        
+        var body: some View {
+            CustomTabView(modelContext: container.mainContext)
+        }
+    }
+    
+    return SwiftDataVie_Preview()
 }

@@ -9,25 +9,46 @@ import SwiftUI
 import SwiftData
 
 struct HistoryView: View {
-    @StateObject var  viewModel = AddSpendViewModel()
-    @Query var spends: [SpendModel]
-   
+    @State var  viewModel: AddSpendViewModel
     var body: some View {
         NavigationStack {
             List {
-                ForEach(spends) { spend in
-                            Text(spend.name)
-                                .font(.headline)
-                            Text(spend.date.formatted(date: .long, time: .shortened))
-                                .font(.subheadline)
+                ForEach(viewModel.spends) { spend in
+                    HStack {
+                        Text(spend.title)
+                            .font(.headline)
+                        Text(spend.date.formatted(date: .long, time: .shortened))
+                            .font(.subheadline)
+                    }
                 }
-                .onDelete(perform: viewModel.deleteSpend)
+//                .onDelete(perform: viewModel.deleteSpend)
             }
             .navigationTitle("Spend History")
         }
     }
+    init(modelContext: ModelContext) {
+        let viewModel = AddSpendViewModel(modelContext: modelContext)
+          _viewModel = State(initialValue: viewModel)
+      }
 }
 
 #Preview {
-    HistoryView()
+    struct SwiftDataVie_Preview: View {
+        
+        let container: ModelContainer
+        
+        init() {
+            do {
+                container = try ModelContainer(for: SpendModel.self, configurations: .init())
+            } catch {
+                fatalError()
+            }
+        }
+        
+        var body: some View {
+            HistoryView(modelContext: container.mainContext)
+        }
+    }
+    
+    return SwiftDataVie_Preview()
 }

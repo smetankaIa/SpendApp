@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftData
 import SwiftUICore
 
 enum Tabs: CaseIterable {
@@ -26,16 +27,16 @@ enum Tabs: CaseIterable {
         }
     }
     @ViewBuilder
-    var view: some View {
+    func view(modelContext: ModelContext) -> some View {
         switch self {
         case .mains:
             MainView()
         case .shoppingList:
             ShoppingListView()
         case .addSpend:
-            AddSpendView()
+            AddSpendView(modelContext: modelContext)
         case .history:
-            HistoryView()
+            HistoryView(modelContext: modelContext)
         case .profile:
             ProfileView()
         }

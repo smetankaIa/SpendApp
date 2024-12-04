@@ -10,9 +10,17 @@ import SwiftData
 
 @main
 struct SharpApp: App {
+    let container: ModelContainer
     var body: some Scene {
         WindowGroup {
-            CustomTabView()
-        }.modelContainer(for: SpendModel.self)
+            CustomTabView(modelContext: container.mainContext)
+        }.modelContainer(container)
+    }
+        init(){
+            do {
+                container = try ModelContainer(for: SpendModel.self)
+            } catch {
+                fatalError("Failed to create ModelContainer for SpendModel.")
+        }
     }
 }
