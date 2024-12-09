@@ -9,9 +9,11 @@ import Foundation
 import SwiftData
 import SwiftUI
 
-
-@Observable
-class AddSpendViewModel {
+final class AddSpendViewModel: ObservableObject {
+    @Published var title = ""
+    @Published var price = 0.0
+    @Published var date = Date()
+    
     var modelContext: ModelContext
     var spends = [SpendModel]()
     
@@ -32,11 +34,21 @@ class AddSpendViewModel {
     
     
     func addSpend() {
-        let spend = SpendModel(title: "LitEnergy Гранат", price: 99 , date: Date())
+        let spend = SpendModel(title: title, price: price , date: date)
         modelContext.insert(spend)
         fetchSpend()
+        title = ""
+        price = 0.0
+        date = Date()
     }
-    
+    func deleteSpend(at offsets: IndexSet) {
+        for offset in offsets {
+            let spend = spends[offset]
+
+            modelContext.delete(spend)
+            fetchSpend()
+        }
+    }
     
 }
 

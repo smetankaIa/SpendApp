@@ -42,27 +42,40 @@ enum Category: CaseIterable {
 
 
 struct AddSpendView: View {
-    @State var viewModel: AddSpendViewModel
-
-    @State var nameSpend = ""
-    @State var priceSpend = 0.0
+    enum Field: Hashable {
+        case nameSpend
+        case priceSpend
+//        case category
+    }
+    
+    @StateObject var viewModel: AddSpendViewModel
+//    @State var nameSpend = ""
+//    @State var priceSpend = Int()
     @State var category = ""
     @State private var selectedCategory: String = "Vegetables/Fruits"
     @State private var selectedDate: Date = Date()
+    @FocusState private var focusedField: Field?
     
     var catregory = ["Vegetables/Fruits", "Milk Products", "Drinks", "Snacks",
               "Bakery", "Alcohol", "Chemical", "Meat", "Souce/Spices", "Cereals",
               "Other", "Add Your Category"]
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            
             Text("Create Spend")
-                .font(.title)
-    
+                .font(.custom("Roboto-Bold", size: 45))
+                .padding()
+            
             HStack {
                 Image(systemName: "basket.fill")
                     .foregroundStyle(.green)
-                TextField("Name Spend", text: $nameSpend)
+                TextField("Name Spend", text: $viewModel.title)
+                    .font(.custom("Roboto-Regular", size: 18))
+                    .focused($focusedField, equals: .nameSpend)
+                    .onAppear {
+                        
+                    }
             }
             .padding()
             
@@ -71,7 +84,9 @@ struct AddSpendView: View {
             HStack {
                 Image(systemName: "dollarsign.ring")
                     .foregroundStyle(.green)
-                TextField("Price Spend", value: $priceSpend, format: .number)
+                TextField("Price Spend", value: $viewModel.price, format: .number)
+                    .focused($focusedField, equals: .priceSpend)
+                    .font(.custom("Roboto-Regular", size: 18))
                     .keyboardType(.decimalPad)
             }
             .padding()
@@ -82,8 +97,9 @@ struct AddSpendView: View {
                 Image(systemName: "calendar")
                     .foregroundStyle(.green)
                 DatePicker("Select a Date",
-                           selection: $selectedDate,
+                           selection: $viewModel.date,
                            displayedComponents: .date)
+                .font(.custom("Roboto-Regular", size: 18))
             }
             .padding()
             
@@ -93,56 +109,46 @@ struct AddSpendView: View {
                 Image(systemName: "list.bullet")
                     .foregroundStyle(.green)
                 Text("Add Caregory")
+                    .font(.custom("Roboto-Regular", size: 18))
                 Spacer()
                 
                 TextField("Category", text: $category)
+                    .font(.custom("Roboto-Regular", size: 18))
             }
             .padding()
             
             Divider()
-            
-            Spacer()
             Spacer()
             
-            HStack {
+            }
+            VStack {
+                Spacer()
                 Button {
                     viewModel.addSpend()
                 } label: {
                     Text("Add Spend")
+                        .font(.custom("Roboto-Regular", size: 18))
                         .foregroundStyle(.white)
                         .frame(width: 200, height: 50)
                         .background(Color.green)
                         .clipShape(.rect(cornerRadius: 15))
                     
                 }
-            }.padding()
-            Spacer()
-        }
+                Spacer()
+            }
+            .padding()
+        
         
     }
     init(modelContext: ModelContext) {
         let viewModel = AddSpendViewModel(modelContext: modelContext)
-          _viewModel = State(initialValue: viewModel)
+        _viewModel = StateObject(wrappedValue: viewModel)
       }
 
 }
 #Preview {
-    struct SwiftDataVie_Preview: View {
-        
-        let container: ModelContainer
-        
-        init() {
-            do {
-                container = try ModelContainer(for: SpendModel.self, configurations: .init())
-            } catch {
-                fatalError()
-            }
-        }
-        
-        var body: some View {
-            AddSpendView(modelContext: container.mainContext)
-        }
+    SwiftDataViewPreview { container in
+        AddSpendView(modelContext: container.mainContext)
     }
-    
-    return SwiftDataVie_Preview()
 }
+

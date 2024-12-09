@@ -9,21 +9,47 @@ import SwiftUI
 import SwiftData
 
 struct HistoryView: View {
-    @State var  viewModel: AddSpendViewModel
+    @State var viewModel: AddSpendViewModel
     var body: some View {
         NavigationStack {
+            HStack {
+                Text("History Spend")
+                    .font(.custom("Roboto-Bold", size: 45))
+                    .padding()
+                Spacer()
+            }
             List {
                 ForEach(viewModel.spends) { spend in
-                    HStack {
-                        Text(spend.title)
-                            .font(.headline)
-                        Text(spend.date.formatted(date: .long, time: .shortened))
-                            .font(.subheadline)
+                    let formattedFloat = String(format: "%.1f", spend.price)
+                    VStack {
+                        HStack {
+                            Text(spend.title)
+                                .font(.headline)
+                                .font(.custom("Roboto-Regular", size: 18))
+                            Spacer()
+                            VStack(alignment: .trailing) {
+                                Text(formattedFloat)
+                                    .font(.headline)
+                                    .font(.custom("Roboto-Bold", size: 18))
+                                Text(spend.date.formatted(date: .numeric, time: .omitted))
+                                    .font(.subheadline)
+                                    .font(.custom("Roboto-Regular", size: 18))
+                            }
+                        }
+                        
                     }
                 }
-//                .onDelete(perform: viewModel.deleteSpend)
-            }
-            .navigationTitle("Spend History")
+                .onDelete(perform: viewModel.deleteSpend)
+                }
+                .overlay(Group {
+                    if viewModel.spends.isEmpty {
+                        VStack {
+                            Text("Oops, looks like there's no data...")
+                            Image(systemName: "note")
+                                .font(.system(size: 150))
+                        }
+                    }
+                })
         }
     }
     init(modelContext: ModelContext) {
@@ -33,22 +59,7 @@ struct HistoryView: View {
 }
 
 #Preview {
-    struct SwiftDataVie_Preview: View {
-        
-        let container: ModelContainer
-        
-        init() {
-            do {
-                container = try ModelContainer(for: SpendModel.self, configurations: .init())
-            } catch {
-                fatalError()
-            }
-        }
-        
-        var body: some View {
-            HistoryView(modelContext: container.mainContext)
-        }
+    SwiftDataViewPreview { container in
+        HistoryView(modelContext: container.mainContext)
     }
-    
-    return SwiftDataVie_Preview()
 }
